@@ -1,23 +1,19 @@
-﻿namespace Assignment_Basic_Registration_Form;
-
-public partial class MainPage : ContentPage
+﻿namespace Assignment_Basic_Registration_Form
 {
-    int count = 0;
-
-    public MainPage()
+    public partial class MainPage : ContentPage
     {
-        InitializeComponent();
-    }
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        count++;
+        private void OnSubmitClicked(object sender, EventArgs e)
+        {
+            string name = nameEntry.Text;
+            string course = courseEntry.Text;
+            string year = yearEntry.Text;
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+            DisplayAlert("Registration Form", $"Name: {name}\nCourse: {course}\nYear: {year}", "OK");
+        }
     }
 }
